@@ -8,14 +8,27 @@
     </div>
 
     <div class="actions">
-      <router-link to="/coaches/c1/contact">Contact</router-link>
-      <router-link to="/coaches/c1"></router-link>
+      <router-link :to="coachContactLink">Contact</router-link>
+      <router-link :to="coachDetailsLink">Details</router-link>
     </div>
   </li>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ['id', 'firstName', 'lastName', 'rate', 'areas'],
+  computed: {
+    fullName() {
+      return this.firstName + ' ' + this.lastName;
+    },
+    coachContactLink() {
+      return this.$route.path + '/' + this.id + '/contact';
+    },
+    coachDetailsLink() {
+      return this.$route.path + '/' + this.id;
+    },
+  },
+};
 </script>
 
 <style>
