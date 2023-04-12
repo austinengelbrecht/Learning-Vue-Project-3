@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 ul {
   list-style: none;
   margin: 0;

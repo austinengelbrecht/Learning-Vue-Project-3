@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 li {
   margin: 1rem 0;
   border: 1px solid #424242;
