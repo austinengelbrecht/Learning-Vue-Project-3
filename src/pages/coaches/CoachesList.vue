@@ -4,8 +4,8 @@
   <section>
     <base-card>
       <div class="controls">
-        <button>Refresh</button>
-        <router-link to="/register">Register</router-link>
+        <base-button mode="outline">Refresh</base-button>
+        <base-button link to="/register">Register</base-button>
       </div>
 
       <ul v-if="hasCoaches">

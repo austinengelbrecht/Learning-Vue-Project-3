@@ -8,8 +8,10 @@
     </div>
 
     <div class="actions">
-      <router-link :to="coachContactLink">Contact</router-link>
-      <router-link :to="coachDetailsLink">Details</router-link>
+      <base-button link mode="outline" :to="coachContactLink"
+        >Contact</base-button
+      >
+      <base-button link :to="coachDetailsLink">Details</base-button>
     </div>
   </li>
 </template>
