@@ -12,7 +12,7 @@
         <h2>Interested? Reach out now!</h2>
         <base-button link :to="contactLink">Contact</base-button>
       </header>
-      <!-- <router-view></router-view> -->
+      <router-view></router-view>
     </base-card>
   </section>
 
@@ -41,9 +41,6 @@ export default {
     fullName() {
       return this.selectedCoach.firstName + ' ' + this.selectedCoach.lastName;
     },
-    contactLink() {
-      return this.$route.path + '/' + this.id + '/contact';
-    },
     areas() {
       return this.selectedCoach.areas;
     },
@@ -52,6 +49,9 @@ export default {
     },
     description() {
       return this.selectedCoach.description;
+    },
+    contactLink() {
+      return this.$route.path + '/' + this.id + '/contact';
     },
   },
   created() {
