@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <header>
     <nav>
       <h1><router-link to="/">Find A Coach</router-link></h1>
@@ -13,7 +13,7 @@
   </header>
 </template>
 
-<style lang="" scoped>
+<style scoped>
 header {
   width: 100%;
   height: 5rem;
