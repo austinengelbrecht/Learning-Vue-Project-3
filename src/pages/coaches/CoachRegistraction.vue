@@ -1,1 +1,0 @@
-<template>Registration</template>
