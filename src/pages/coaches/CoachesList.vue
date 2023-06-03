@@ -1,6 +1,10 @@
 <template lang="">
   <section><coach-filter @change-filter="setFilters"></coach-filter></section>
 
+  <base-dialog :show="!!error" title="An error occurred!" @close="handleError">
+    <p>{{ error }}</p>
+  </base-dialog>
+
   <section>
     <base-card>
       <div class="controls">
@@ -8,10 +12,6 @@
         <base-button v-if="!isCoach && !isLoading" link to="/register"
           >Register</base-button
         >
-      </div>
-
-      <div v-if="error">
-        <p>There was an error loading all data</p>
       </div>
 
       <div v-if="isLoading">
@@ -89,6 +89,9 @@ export default {
         this.error = error.message || 'Something went wrong while loading';
       }
       this.isLoading = false;
+    },
+    handleError() {
+      this.error = null;
     },
   },
   created() {
