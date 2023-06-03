@@ -10,6 +10,10 @@
         >
       </div>
 
+      <div v-if="error">
+        <p>There was an error loading all data</p>
+      </div>
+
       <div v-if="isLoading">
         <base-spinner></base-spinner>
       </div>
@@ -45,6 +49,7 @@ export default {
         career: true,
       },
       isLoading: false,
+      error: null,
     };
   },
   computed: {
@@ -78,7 +83,11 @@ export default {
     },
     async loadCoaches() {
       this.isLoading = true;
-      await this.$store.dispatch('coaches/loadCoaches');
+      try {
+        await this.$store.dispatch('coaches/loadCoaches');
+      } catch (error) {
+        this.error = error.message || 'Something went wrong while loading';
+      }
       this.isLoading = false;
     },
   },
