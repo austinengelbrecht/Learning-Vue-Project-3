@@ -5,12 +5,25 @@
         <h2>Requests Received</h2>
       </header>
 
-      <ul></ul>
+      <ul v-if="hasRequests"></ul>
 
-      <h3>You have no requests</h3>
+      <h3 v-if="!hasRequests">You have no requests</h3>
     </base-card>
   </section>
 </template>
+
+<script>
+export default {
+  computed: {
+    receivedRequests() {
+      return this.$store.getters('requests/requests');
+    },
+    hasRequests() {
+      return this.$store.getters('requests/hasRequests');
+    },
+  },
+};
+</script>
 
 <style scoped>
 header {
