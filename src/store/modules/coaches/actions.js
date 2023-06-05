@@ -26,6 +26,10 @@ export default {
     context.commit('registerCoach', { ...coach, id: userId });
   },
   async loadCoaches(context) {
+    if (!context.getters.shouldUpdate) {
+      return;
+    }
+
     const response = await fetch(`https://test-back-end.com/coaches.json`);
 
     const responseData = await response.json();
@@ -51,5 +55,6 @@ export default {
     }
 
     context.commit('setCoaches', coaches);
+    context.commit('setFetchTimeStamp');
   },
 };
