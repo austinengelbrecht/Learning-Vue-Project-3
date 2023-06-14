@@ -30,8 +30,10 @@ export default {
   async fetchRequests(context) {
     const coachId = context.rootGetters.userId;
 
+    const token = context.rootGetters.token;
+
     const response = await fetch(
-      `https://test-back-end.com/coaches/${coachId}.json`
+      `https://test-back-end.com/coaches/${coachId}.json?auth=${token}`
     );
 
     const responseData = await response.json();
