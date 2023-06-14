@@ -13,10 +13,10 @@
 
       <p v-if="!formIsValid">Please enter a valid email and password.</p>
 
-      <base-button>Login</base-button>
-      <base-button type="button" mode="flat" @click="switchAuthMode"
-        >Sign-up</base-button
-      >
+      <base-button>{{ submitButtonCaption }}</base-button>
+      <base-button type="button" mode="flat" @click="switchAuthMode">
+        {{ switchModeButtonCaptions }}
+      </base-button>
     </form>
   </base-card>
 </template>
@@ -30,6 +30,22 @@ export default {
       formIsValid: true,
       mode: 'login',
     };
+  },
+  computed: {
+    submitButtonCaption() {
+      if (this.mode == 'login') {
+        return 'Login';
+      } else {
+        return 'Sign Up';
+      }
+    },
+    switchModeButtonCaptions() {
+      if (this.mode == 'login') {
+        return 'Sign Up Instead';
+      } else {
+        return 'Sign In Instead';
+      }
+    },
   },
   methods: {
     submitForm() {
