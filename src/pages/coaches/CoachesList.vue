@@ -18,7 +18,9 @@
         >
           Register
         </base-button>
-        <base-button link to="/auth" v-if="!isLoggendIn">Log In</base-button>
+        <base-button link to="/auth?redirect=register" v-if="!isLoggendIn">
+          Log In to Register
+        </base-button>
       </div>
 
       <div v-if="isLoading">
