@@ -44,6 +44,9 @@ export default {
       throw error;
     }
 
+    localStorage.setItem('token', responseData.idToken);
+    localStorage.setItem('userId', responseData.localId);
+
     context.commit('setUser', {
       token: responseData.idToken,
       userId: responseData.localId,
